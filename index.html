@@ -5,24 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pratham Poptani</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <p class="line">
         Pratham@protfolio~$
-        <span id="typrd-text">
+        <span id="typed-text">
             
         </span>
         <span class="cursor">
              &nbsp;
         </span>
-
     </p>
+
+    <script>
+        const text = "Welcome to my portfolio!";
+        const typed = document.getElementById("typed-text") 
+
+        let index = 0;
+
+        function type() {
+            if (index < text.length){
+                typed.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type,150)
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded",type);
+    </script>
     
 </body>
 </html>
-
-<script>
-    let main = document.getElementsByClassName("main")
-
-    
-</script>
