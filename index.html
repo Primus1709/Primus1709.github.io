@@ -17,8 +17,9 @@
              &nbsp;
         </span>
     </p>
-
+<!-- 
     <script>
+        let namevar;
         const text = "Happy Birthday Rohit!";
         const typed = document.getElementById("typed-text") 
 
@@ -33,7 +34,26 @@
         }
 
         document.addEventListener("DOMContentLoaded",type);
-    </script>
+    </script> -->
+<script>
+    const names = ["Rohit", "Aman", "Priya", "Sara", "Leo"];
+    const randomName = names[Math.floor(Math.random() * names.length)];
+
+    const text = `Happy Birthday ${randomName}!`;
+    const typed = document.getElementById("typed-text");
+    let index = 0;
+
+    function type() {
+        if (index < text.length) {
+            typed.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(type, 150);
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", type);
+</script>
+
     
 </body>
 </html>
