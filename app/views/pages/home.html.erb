@@ -1,0 +1,86 @@
+<% provide(:inline_flash, "yes") %>
+
+<section class="hero wrap" aria-labelledby="hero-name">
+  <h1 class="hero__name" id="hero-name"><span class="marker"><%= profile[:name] %></span></h1>
+  <p class="hero__role"><%= profile[:role] %></p>
+  <p class="hero__intro"><%= profile[:intro] %></p>
+
+  <div class="hero__actions">
+    <%= link_to "See my work", projects_path, class: "button" %>
+    <%= mail_to profile[:email], "Email me", class: "button button--quiet" %>
+  </div>
+
+  <ul class="plain-list inline-list hero__links">
+    <% profile[:links].each do |link| %>
+      <li><%= link_to link[:label], link[:url] %></li>
+    <% end %>
+  </ul>
+
+  <% if profile[:availability].present? %>
+    <p class="hero__availability"><span class="status-dot" aria-hidden="true"></span><%= profile[:availability] %></p>
+  <% end %>
+</section>
+
+<section class="section wrap" aria-labelledby="work-heading">
+  <h2 class="section__heading" id="work-heading">Selected work</h2>
+  <div class="section__body">
+    <% if @featured_projects.any? %>
+      <ol class="plain-list work-list">
+        <%= render partial: "projects/project_row", collection: @featured_projects, as: :project %>
+      </ol>
+      <% if @project_count > @featured_projects.size %>
+        <p class="section__more"><%= link_to "See all #{@project_count} projects", projects_path %></p>
+      <% end %>
+    <% else %>
+      <p class="empty">No projects yet. Add your first one at <%= link_to "/admin", admin_root_path %>.</p>
+    <% end %>
+  </div>
+</section>
+
+<section class="section wrap" id="about" aria-labelledby="about-heading">
+  <h2 class="section__heading" id="about-heading">About</h2>
+  <div class="section__body prose">
+    <% profile[:about].each do |paragraph| %>
+      <p><%= paragraph %></p>
+    <% end %>
+
+    <% if profile[:now].present? %>
+      <h3>Right now</h3>
+      <ul>
+        <% profile[:now].each do |item| %>
+          <li><%= item %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</section>
+
+<section class="section wrap" aria-labelledby="skills-heading">
+  <h2 class="section__heading" id="skills-heading">Toolkit</h2>
+  <div class="section__body">
+    <dl class="skills">
+      <% profile[:skills].each do |group| %>
+        <div class="skills__group">
+          <dt><%= group[:group] %></dt>
+          <dd>
+            <ul class="plain-list inline-list">
+              <% group[:items].each do |item| %>
+                <li><%= item %></li>
+              <% end %>
+            </ul>
+          </dd>
+        </div>
+      <% end %>
+    </dl>
+  </div>
+</section>
+
+<section class="section wrap" id="contact" aria-labelledby="contact-heading">
+  <h2 class="section__heading" id="contact-heading">Contact</h2>
+  <div class="section__body">
+    <p class="section__lead">Hiring, collaborating, or have a question about something I built? Send a note here or email <%= mail_link %>.</p>
+
+    <%= render "shared/flash" %>
+    <%= render "messages/form", message: @message %>
+  </div>
+</section>

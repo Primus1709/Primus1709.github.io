@@ -1,0 +1,3 @@
+<% flash.each do |type, text| %>
+  <p class="flash flash--<%= type == "alert" ? "alert" : "notice" %>" role="<%= type == "alert" ? "alert" : "status" %>"><%= text %></p>
+<% end %>

@@ -1,0 +1,10 @@
+<% page_title "Edit #{@project.title_in_database}" %>
+
+<div class="admin__heading">
+  <h1>Edit <%= @project.title_in_database %></h1>
+  <% if @project.published_in_database %>
+    <%= link_to "View page", project_path(@project) %>
+  <% end %>
+</div>
+
+<%= render "form", project: @project %>

@@ -1,0 +1,23 @@
+<% page_title "Messages" %>
+
+<div class="admin__heading">
+  <h1>Messages</h1>
+</div>
+
+<% if @messages.any? %>
+  <ul class="plain-list inbox">
+    <% @messages.each do |message| %>
+      <li class="inbox__item <%= "inbox__item--unread" unless message.read? %>">
+        <%= link_to admin_message_path(message), class: "inbox__link" do %>
+          <span class="inbox__from">
+            <% unless message.read? %><span class="visually-hidden">Unread: </span><% end %><%= message.name %>
+          </span>
+          <span class="inbox__preview"><%= truncate(message.body, length: 110) %></span>
+          <time class="inbox__time" datetime="<%= message.created_at.iso8601 %>"><%= time_ago_in_words(message.created_at) %> ago</time>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="empty">No messages yet. They'll show up here when someone uses the contact form.</p>
+<% end %>

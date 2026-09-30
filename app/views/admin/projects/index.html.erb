@@ -1,0 +1,47 @@
+<% page_title "Projects" %>
+
+<div class="admin__heading">
+  <h1>Projects</h1>
+  <%= link_to "Add a project", new_admin_project_path, class: "button" %>
+</div>
+
+<% if @projects.any? %>
+  <div class="table-scroll">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Order</th>
+          <th scope="col">Title</th>
+          <th scope="col">Year</th>
+          <th scope="col">Status</th>
+          <th scope="col"><span class="visually-hidden">Actions</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @projects.each do |project| %>
+          <tr>
+            <td class="table__num"><%= project.position %></td>
+            <td>
+              <%= link_to project.title, edit_admin_project_path(project) %>
+              <% if project.featured? %><span class="tag">On home page</span><% end %>
+            </td>
+            <td class="table__num"><%= project.year %></td>
+            <td><%= project.published? ? "Published" : "Hidden" %></td>
+            <td class="table__actions">
+              <% if project.published? %>
+                <%= link_to "View", project_path(project) %>
+              <% end %>
+              <%= link_to "Edit", edit_admin_project_path(project) %>
+              <%= button_to "Delete", admin_project_path(project), method: :delete,
+                    class: "link-button link-button--danger",
+                    form: { data: { confirm: "Delete #{project.title}? This can't be undone." } } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <p class="hint">Lower order numbers show first. Projects marked for the home page show up under Selected work.</p>
+<% else %>
+  <p class="empty">No projects yet. <%= link_to "Add your first project", new_admin_project_path %>.</p>
+<% end %>

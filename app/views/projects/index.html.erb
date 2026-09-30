@@ -1,0 +1,16 @@
+<% page_title "Work" %>
+
+<section class="page-intro wrap">
+  <h1 class="page-intro__title">Work</h1>
+  <p class="page-intro__lead">Things I've built, each written up as a short case study: the problem, how I built it, and what came of it.</p>
+</section>
+
+<div class="wrap">
+  <% if @projects.any? %>
+    <ol class="plain-list work-list work-list--full">
+      <%= render partial: "projects/project_row", collection: @projects, as: :project %>
+    </ol>
+  <% else %>
+    <p class="empty">No projects yet. Add your first one at <%= link_to "/admin", admin_root_path %>.</p>
+  <% end %>
+</div>

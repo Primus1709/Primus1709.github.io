@@ -1,0 +1,15 @@
+<%# One row in a list of projects. The whole row is clickable through the title link. %>
+<li class="work-row">
+  <span class="work-row__year"><%= project.year %></span>
+  <div class="work-row__body">
+    <h3 class="work-row__title"><%= link_to project.title, project_path(project) %></h3>
+    <p class="work-row__summary"><%= project.summary %></p>
+    <% if project.tech_list.any? %>
+      <ul class="plain-list inline-list work-row__stack" aria-label="Built with">
+        <% project.tech_list.each do |tech| %>
+          <li><%= tech %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</li>
