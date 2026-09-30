@@ -1,5 +1,182 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><title>Pratham</title></head>
-<body><h1>Portfolio coming soon</h1></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pratham Poptani — Computer Science student and software developer building practical, thoughtful software." />
+  <title>Pratham Poptani — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top">PP</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <div class="hero-copy">
+          <p class="eyebrow">Computer Science · Halifax, Canada</p>
+          <h1>I build software to understand how things work — and turn ideas into useful products.</h1>
+          <p class="hero-text">
+            I’m Pratham Poptani, a Computer Science student at Dalhousie University.
+            I’m interested in software engineering, systems, developer tools, Linux, Go,
+            and building products that solve real problems.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">View my work</a>
+            <a class="button secondary" href="mailto:your-email@example.com">Email me</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Quick profile">
+          <div class="status-dot"></div>
+          <p class="card-label">Currently</p>
+          <h2>Learning by building.</h2>
+          <p>Algorithms, Go, Docker, Linux, system design, and full-stack product development.</p>
+          <div class="mini-grid">
+            <div>
+              <span class="mini-label">Based in</span>
+              <strong>Halifax, NS</strong>
+            </div>
+            <div>
+              <span class="mini-label">Focus</span>
+              <strong>SWE / Systems</strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="section split-section">
+        <div>
+          <p class="section-kicker">01 / About</p>
+          <h2>More interested in building real things than collecting buzzwords.</h2>
+        </div>
+        <div class="body-copy">
+          <p>
+            I like projects that force me to learn deeply: algorithms through graph tooling,
+            infrastructure through Linux and Docker, and product development by shipping things
+            people can actually use.
+          </p>
+          <p>
+            Long term, I want to work on software with meaningful real-world impact and eventually
+            build products of my own.
+          </p>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">02 / Selected work</p>
+            <h2>Projects</h2>
+          </div>
+          <p class="section-note">Replace the placeholder links as your repos go live.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-topline">
+              <span class="tag">Go</span>
+              <span class="tag">Algorithms</span>
+              <span class="tag">Visualization</span>
+            </div>
+            <h3>GraphLab</h3>
+            <p>
+              A graph-learning playground that generates random graphs and provides a foundation
+              for visualizing traversal, shortest-path, and graph algorithms interactively.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/Prime1709/GraphLab" target="_blank" rel="noreferrer">GitHub ↗</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="tag">Product</span>
+              <span class="tag">Web</span>
+            </div>
+            <h3>Local Events Discovery</h3>
+            <p>
+              A product concept for gathering nearby events, considering a user’s schedule,
+              and reducing decision fatigue around getting out and doing something in the real world.
+            </p>
+            <div class="project-links">
+              <a href="#contact">In development</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="tag">Linux</span>
+              <span class="tag">Automation</span>
+            </div>
+            <h3>Personal Linux Workflows</h3>
+            <p>
+              Practical Linux setups and automation work including rclone-backed Google Drive mounts,
+              systemd user services, terminal-first workflows, and custom development environments.
+            </p>
+            <div class="project-links">
+              <a href="#contact">Write-up coming soon</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section split-section">
+        <div>
+          <p class="section-kicker">03 / Skills</p>
+          <h2>What I’m working with.</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <p>Go · Python · C/C++ · JavaScript · HTML/CSS</p>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <p>Git · GitHub · Docker · Linux · systemd · Neovim · Zed</p>
+          </div>
+          <div class="skill-group">
+            <h3>Learning</h3>
+            <p>Algorithms · System Design · Operating Systems · Cloud Fundamentals</p>
+          </div>
+          <div class="skill-group">
+            <h3>Environment</h3>
+            <p>Arch Linux · KDE · terminal-first development</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <p class="section-kicker">04 / Contact</p>
+        <h2>Want to build something interesting?</h2>
+        <p>
+          I’m open to software engineering internships, startup work, collaboration,
+          and conversations about useful products.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your-email@example.com">your-email@example.com</a>
+          <a href="https://github.com/Prime1709" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© <span id="year"></span> Pratham Poptani</p>
+      <p>Built with plain HTML, CSS, and a tiny bit of JavaScript.</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
