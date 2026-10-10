@@ -1,201 +1,149 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Pratham Poptani — Computer Science student and software developer building practical, thoughtful software." />
-  <title>Pratham Poptani</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Call the demo line for patient information about Maya Chen. Patient details and a demo verification code are provided for the call.">
+  <meta name="theme-color" content="#174b43">
+  <title>Patient information · Call demo</title>
+  <style>
+    :root { color-scheme: light; --ink: #173b35; --muted: #5e716a; --line: #e3e9e5; --green: #174b43; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; min-height: 100svh; padding: 48px 24px; background: #f3f5f0; color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; -webkit-font-smoothing: antialiased; }
+    .page { width: min(100%, 660px); margin: 0 auto; }
+    .masthead { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 30px; }
+    .wordmark { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 650; }
+    .mark { display: grid; place-items: center; width: 30px; height: 30px; background: #e0e8dc; border-radius: 9px; }
+    .demo { border: 1px solid #d6ded5; border-radius: 999px; padding: 6px 10px; font-size: 10px; font-weight: 750; letter-spacing: .1em; white-space: nowrap; }
+    .card { overflow: hidden; background: #fff; border: 1px solid #dfe5df; border-radius: 24px; box-shadow: 0 12px 45px #173b3507; }
+    .intro { padding: 38px 40px 30px; }
+    .eyebrow { margin: 0 0 12px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0 0 12px; font-size: clamp(30px, 6vw, 40px); font-weight: 650; line-height: 1.15; letter-spacing: -.035em; }
+    .description { margin: 0; max-width: 470px; color: var(--muted); font-size: 15px; line-height: 1.65; }
+    .call { display: flex; justify-content: center; align-items: center; gap: 14px; margin-top: 26px; padding: 18px 20px; color: #fff; background: var(--green); border-radius: 13px; text-decoration: none; transition: background .15s; }
+    .call:hover { background: #103d36; }
+    .call svg { flex-shrink: 0; }
+    .call-text { display: flex; flex-direction: column; gap: 5px; }
+    .call-label { color: #d1e3db; font-size: 12px; }
+    .phone-number { font-size: 23px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+    .details { padding: 26px 40px; border-top: 1px solid var(--line); }
+    h2 { margin: 0 0 18px; font-size: 14px; font-weight: 650; }
+    dl { display: grid; grid-template-columns: 1fr 1fr; gap: 23px 24px; margin: 0; }
+    dt { margin-bottom: 6px; font-size: 12px; color: var(--muted); }
+    dd { margin: 0; font-size: 16px; line-height: 1.5; font-weight: 550; }
+    .verification { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 23px 40px; background: #f1f5ee; border-top: 1px solid var(--line); }
+    .verification-label { margin: 0 0 8px; font-size: 12px; color: var(--muted); }
+    .code { color: var(--ink); font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; font-size: clamp(24px, 6vw, 30px); font-weight: 650; letter-spacing: .1em; user-select: all; }
+    .verification-hint { margin: 8px 0 0; font-size: 12px; color: var(--muted); line-height: 1.5; }
+    .copy { display: flex; align-items: center; justify-content: center; gap: 7px; min-width: 93px; min-height: 44px; padding: 10px 13px; border: 1px solid #cfdad0; border-radius: 9px; background: #fff; color: var(--ink); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+    .copy:hover { background: #f8faf6; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #bf7841; outline-offset: 4px; }
+    .footer { margin: 20px 4px 0; color: var(--muted); font-size: 12px; line-height: 1.6; text-align: center; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @media (max-width: 520px) {
+      body { padding: 26px 16px; }
+      .masthead { margin-bottom: 23px; }
+      .intro { padding: 29px 24px 25px; }
+      .details { padding: 24px; }
+      .verification { padding: 22px 24px; gap: 12px; }
+      .phone-number { font-size: 21px; }
+      dl { gap: 22px 14px; }
+      dd { font-size: 15px; }
+    }
+    @media (max-width: 360px) {
+      dl { grid-template-columns: 1fr; }
+      .verification { align-items: flex-start; flex-direction: column; }
+      .phone-number { font-size: 19px; }
+    }
+  </style>
 </head>
 <body>
-  <div class="page-shell">
-    <header class="site-header">
-      <a class="brand" href="#top">PP</a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <main class="page">
+    <header class="masthead">
+      <div class="wordmark">
+        <span class="mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5c-5 0-8.5 3.1-8.5 7.5 0 2.1.9 4 2.4 5.3L5 20.5l4.3-2.3c.9.2 1.8.3 2.7.3 5 0 8.5-3.1 8.5-7.5s-3.5-7.5-8.5-7.5Z"/><path d="M8 11h8M12 7v8"/></svg>
+        </span>
+        Patient information
+      </div>
+      <span class="demo">DEMO ONLY</span>
     </header>
 
-    <main id="top">
-      <section class="hero section">
-        <div class="hero-copy">
-          <p class="eyebrow">Computer Science · Halifax, Canada</p>
-          <h1>I build software to understand how things work — and turn ideas into useful products.</h1>
-          <p class="hero-text">
-            I’m Pratham Poptani, a Computer Science student at Dalhousie University.
-            I’m interested in software engineering, systems, developer tools, Linux, Go,
-            and building products that solve real problems.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View my work</a>
-            <a class="button secondary" href="mailto:prathampoptani11@gmail.com">Email me</a>
-          </div>
-        </div>
-        <aside class="hero-card" aria-label="Quick profile">
-          <div class="status-dot"></div>
-          <p class="card-label">Currently</p>
-          <h2>Learning by building.</h2>
-          <p>Algorithms, Go, Docker, Linux, system design, and full-stack product development.</p>
-          <div class="mini-grid">
-            <div>
-              <span class="mini-label">Based in</span>
-              <strong>Halifax, NS</strong>
-            </div>
-            <div>
-              <span class="mini-label">Focus</span>
-              <strong>SWE / Systems</strong>
-            </div>
-          </div>
-        </aside>
-      </section>
+    <section class="card" aria-labelledby="page-title">
+      <div class="intro">
+        <p class="eyebrow">Your call guide</p>
+        <h1 id="page-title">Ask about Maya.</h1>
+        <p class="description">Call the demo line to ask for patient information about Maya Chen. Keep the details below handy during the call.</p>
+        <a class="call" href="tel:+17822087569" aria-label="Call the patient information demo line at +1 782 208 7569">
+          <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/></svg>
+          <span class="call-text"><span class="call-label">Tap to call</span><span class="phone-number">+1 (782) 208-7569</span></span>
+        </a>
+      </div>
 
-      <section id="about" class="section split-section">
+      <div class="details">
+        <h2>Details for the call</h2>
+        <dl>
+          <div><dt>Patient name</dt><dd>Maya Chen</dd></div>
+          <div><dt>Date of birth</dt><dd><time datetime="1990-04-12">April 12, 1990</time></dd></div>
+          <div><dt>Emergency contact</dt><dd>Shivam Shah</dd></div>
+          <div><dt>Relationship</dt><dd>Friend</dd></div>
+        </dl>
+      </div>
+
+      <div class="verification">
         <div>
-          <p class="section-kicker">01 / About</p>
-          <h2>More interested in building real things than collecting buzzwords.</h2>
+          <p class="verification-label">Default demo verification code</p>
+          <code class="code" id="verification-code">12345678</code>
+          <p class="verification-hint">Provide this code when asked.</p>
         </div>
-        <div class="body-copy">
-          <p>
-            I like projects that force me to learn deeply: algorithms through graph tooling,
-            infrastructure through Linux and Docker, and product development by shipping things
-            people can actually use.
-          </p>
-          <p>
-            Long term, I want to work on software with meaningful real-world impact and eventually
-            build products of my own.
-          </p>
-        </div>
-      </section>
+        <button class="copy" type="button" id="copy-code" aria-label="Copy verification code 12345678">
+          <svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copy-label">Copy code</span>
+        </button>
+      </div>
+    </section>
 
-      <section id="projects" class="section">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">02 / Selected work</p>
-            <h2>Projects</h2>
-          </div>
-          <p class="section-note">Replace the placeholder links as your repos go live.</p>
-        </div>
-
-        <div class="project-grid">
-          <article class="project-card featured">
-            <div class="project-topline">
-              <span class="tag">Go</span>
-              <span class="tag">Algorithms</span>
-              <span class="tag">Visualization</span>
-            </div>
-            <h3>GraphLab</h3>
-            <p>
-              A graph-learning playground that generates random graphs and provides a foundation
-              for visualizing traversal, shortest-path, and graph algorithms interactively.
-            </p>
-            <div class="project-links">
-              <a href="https://github.com/Primus1709/GraphLab" target="_blank" rel="noreferrer">GitHub ↗</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-  <div class="project-topline">
-    <span class="tag">JavaScript</span>
-    <span class="tag">Space Tech</span>
-    <span class="tag">Visualization</span>
-  </div>
-
-  <h3>Aperture</h3>
-
-  <p>
-    A spaceflight planning and visualization tool built to explore launch
-    windows, orbital constraints, and satellite traffic for missions to
-    different Earth orbits.
-  </p>
-
-  <div class="project-links">
-    <a
-      href="https://aperture-omega-rouge.vercel.app/"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Live Demo ↗
-    </a>
-
-    <a
-      href="https://github.com/AayushCS/Aperture"
-      target="_blank"
-      rel="noreferrer"
-    >
-      GitHub ↗
-    </a>
-  </div>
-</article>
-
-          <article class="project-card">
-            <div class="project-topline">
-              <span class="tag">Linux</span>
-              <span class="tag">Automation</span>
-            </div>
-            <h3>Personal Linux Workflows</h3>
-            <p>
-              Practical Linux setups and automation work including rclone-backed Google Drive mounts,
-              systemd user services, terminal-first workflows, and custom development environments.
-            </p>
-            <div class="project-links">
-              <a href="#contact">Write-up coming soon</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="skills" class="section split-section">
-        <div>
-          <p class="section-kicker">03 / Skills</p>
-          <h2>What I’m working with.</h2>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <p>Go · Python · C/C++ · JavaScript · HTML/CSS</p>
-          </div>
-          <div class="skill-group">
-            <h3>Tools</h3>
-            <p>Git · GitHub · Docker · Linux · systemd · Neovim · Zed</p>
-          </div>
-          <div class="skill-group">
-            <h3>Learning</h3>
-            <p>Algorithms · System Design · Operating Systems · Cloud Fundamentals</p>
-          </div>
-          <div class="skill-group">
-            <h3>Environment</h3>
-            <p>Arch Linux · KDE · terminal-first development</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section contact-section">
-        <p class="section-kicker">04 / Contact</p>
-        <h2>Want to build something interesting?</h2>
-        <p>
-          I’m open to software engineering internships, startup work, collaboration,
-          and conversations about useful products.
-        </p>
-        <div class="contact-links">
-          <a href="mailto:prathampoptani11@gmail.com">prathampoptani11@gmail.com</a>
-          <a href="https://github.com/Primus1709" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a href="https://www.linkedin.com/in/prathamluvslinux" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <p>© <span id="year"></span> Pratham Poptani</p>
-      <p>Built with plain HTML, CSS, and a tiny bit of JavaScript.</p>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
+    <p class="footer">For demonstration purposes only.</p>
+    <p class="sr-only" id="copy-status" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    const copyButton = document.getElementById('copy-code');
+    const copyLabel = document.getElementById('copy-label');
+    const copyStatus = document.getElementById('copy-status');
+    let resetTimer;
+    copyButton.addEventListener('click', async () => {
+      const code = document.getElementById('verification-code').textContent;
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(code);
+        copied = true;
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = code;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.appendChild(field);
+        field.select();
+        try { copied = document.execCommand('copy'); } catch { copied = false; }
+        field.remove();
+        copyButton.focus();
+      }
+      if (copied) {
+        copyLabel.textContent = 'Copied!';
+        copyStatus.textContent = 'Verification code copied.';
+      } else {
+        copyLabel.textContent = 'Select code';
+        copyStatus.textContent = 'Select the verification code and copy it manually.';
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(document.getElementById('verification-code'));
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => { copyLabel.textContent = 'Copy code'; copyStatus.textContent = ''; }, 3000);
+    });
+  </script>
 </body>
 </html>
